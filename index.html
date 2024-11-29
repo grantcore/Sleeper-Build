@@ -4,44 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sleeper Build</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Add favicon here -->
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="icon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #333;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header img {
+            width: 100px; /* Adjust size as needed */
+            height: auto;
+        }
+        .content {
+            padding: 20px;
+        }
+        .workout {
+            margin-bottom: 20px;
+        }
+        .workout label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .workout input {
+            width: 100px;
+            padding: 5px;
+            margin: 5px 0;
+        }
+        .timer {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <div class="header-container">
-            <img src="logo.png" alt="Sleeper Build Logo" class="logo"> <!-- Add logo image -->
-            <h1>Sleeper Build</h1>
-        </div>
+        <!-- Logo -->
+        <img src="logo.png" alt="Sleeper Build Logo">
     </header>
-    
-    <div class="timer-container">
+
+    <div class="content">
+        <!-- Workout Form -->
+        <div class="workout">
+            <label for="exercise">Exercise Name:</label>
+            <input type="text" id="exercise" placeholder="Enter exercise name">
+        </div>
+
+        <div class="workout">
+            <label for="sets">Sets:</label>
+            <input type="number" id="sets" placeholder="Number of sets">
+        </div>
+
+        <div class="workout">
+            <label for="reps">Reps per Set:</label>
+            <input type="number" id="reps" placeholder="Reps per set">
+        </div>
+
+        <div class="workout">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" placeholder="Enter weight">
+        </div>
+
+        <!-- Timer -->
         <div class="timer">
-            <h2>Rest Timer</h2>
-            <div id="timer-display">00:00</div>
-            <button id="start-timer">Start Timer</button>
+            <label for="rest-time">Rest Time (seconds):</label>
+            <input type="number" id="rest-time" placeholder="Rest time in seconds">
+            <button onclick="startTimer()">Start Rest Timer</button>
+            <div id="timer-display">Timer: 00:00</div>
         </div>
     </div>
 
-    <div class="workout-form-container">
-        <h2>Log Your Workout</h2>
-        <form id="workout-form">
-            <label for="exercise-name">Exercise:</label>
-            <input type="text" id="exercise-name" name="exercise-name" required>
-            
-            <label for="sets">Sets:</label>
-            <input type="number" id="sets" name="sets" required>
-            
-            <label for="reps">Reps:</label>
-            <input type="number" id="reps" name="reps" required>
-            
-            <label for="weight">Weight:</label>
-            <input type="number" id="weight" name="weight" required>
-            
-            <button type="submit">Log Workout</button>
-        </form>
-    </div>
+    <script>
+        function startTimer() {
+            var time = document.getElementById("rest-time").value;
+            var display = document.getElementById("timer-display");
 
-    <script src="script.js"></script> <!-- Link to JavaScript file -->
+            var timer = setInterval(function() {
+                var minutes = Math.floor(time / 60);
+                var seconds = time % 60;
+                display.textContent = "Timer: " + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+                time--;
+
+                if (time < 0) {
+                    clearInterval(timer);
+                    display.textContent = "Time's up!";
+                    // Play sound when timer ends
+                    var audio = new Audio('alarm.mp3'); // Replace with your sound file
+                    audio.play();
+                }
+            }, 1000);
+        }
+    </script>
+
 </body>
 </html>
