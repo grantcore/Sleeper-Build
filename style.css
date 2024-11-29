@@ -7,8 +7,7 @@ body {
 }
 
 .container {
-    width: 100%;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -19,87 +18,63 @@ header {
 }
 
 #logo {
-    width: 50px; /* Adjust the size of the logo as needed */
+    width: 80px;
     height: auto;
-    margin-bottom: 10px;
 }
 
-button {
+#phase-selector {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#sidebar {
+    position: relative;
+    width: 200px;
+    display: inline-block;
+}
+
+#menu {
+    display: none;
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu ul li {
+    margin: 5px 0;
+    text-align: center;
+}
+
+#menu ul li button {
+    padding: 10px;
+    width: 100%;
     background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
+    color: #fff;
     border: none;
     cursor: pointer;
-    margin-top: 10px;
 }
 
-button:hover {
+#menu ul li button:hover {
     background-color: #0056b3;
+}
+
+#timer-section {
+    text-align: center;
+    margin: 20px 0;
 }
 
 #timer {
     font-size: 2em;
-    margin-top: 10px;
-    color: #333;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: center;
-    margin-top: 10px;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    font-weight: bold;
-    color: #007bff;
-}
-
-#dayStatus {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.day-square {
-    width: 50px;
-    height: 50px;
-    margin: 10px;
-    background-color: grey;
-    color: white;
-    text-align: center;
-    line-height: 50px;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.day-square.completed {
-    background-color: green;
-}
-
-section h2 {
-    margin-top: 20px;
-    font-size: 1.5em;
-}
-
-.set {
     margin: 10px 0;
 }
 
-.set input {
-    padding: 8px;
-    margin: 5px 0;
-    width: 100px;
-}
-
-footer {
+main {
     text-align: center;
     margin-top: 20px;
 }
