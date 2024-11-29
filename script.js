@@ -1,4 +1,4 @@
-// Main Workout Timer
+// Global Workout Timer
 let totalTimer = document.getElementById("total-timer");
 let totalSeconds = 0;
 setInterval(() => {
@@ -8,8 +8,18 @@ setInterval(() => {
   totalTimer.textContent = `${minutes}:${seconds}`;
 }, 1000);
 
-// Finish Workout Function
-function finishWorkout() {
-  alert("Workout Finished!");
-  // Logic to save workout data goes here
+// Rest Timer Functionality
+function startRestTimer(button, duration) {
+  let timeLeft = duration;
+  button.disabled = true;
+  const interval = setInterval(() => {
+    if (timeLeft <= 0) {
+      clearInterval(interval);
+      button.textContent = `Rest: Done`;
+      button.disabled = false;
+    } else {
+      timeLeft--;
+      button.textContent = `Rest: ${timeLeft}s`;
+    }
+  }, 1000);
 }
