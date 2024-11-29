@@ -18,6 +18,12 @@ header {
     margin-bottom: 20px;
 }
 
+#logo {
+    width: 50px; /* Adjust the size of the logo as needed */
+    height: auto;
+    margin-bottom: 10px;
+}
+
 button {
     background-color: #007bff;
     color: white;
@@ -41,6 +47,7 @@ nav ul {
     list-style-type: none;
     padding: 0;
     text-align: center;
+    margin-top: 10px;
 }
 
 nav ul li {
