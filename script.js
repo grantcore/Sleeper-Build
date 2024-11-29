@@ -94,10 +94,18 @@ document.getElementById("saveBtn").addEventListener("click", function() {
     alert("Workout saved!");
 });
 
-// Start the workout
-function startWorkout() {
-    isWorkoutActive = true;
-    startTimer();
-}
-
-startWorkout(); // Automatically start the workout timer when the page loads
+// Show the workout for the selected day
+function showWorkout(day) {
+    const workoutSection = document.getElementById("workout");
+    workoutSection.innerHTML = ""; // Clear previous workout
+    if (day === "day1") {
+        workoutSection.innerHTML = `
+            <h2>Pec Deck Flys</h2>
+            <div class="set">
+                <label for="set1_reps">Set 1 - Reps:</label>
+                <input type="number" id="set1_reps" placeholder="Reps">
+                <label for="set1_weight">Set 1 - Weight:</label>
+                <input type="number" id="set1_weight" placeholder="Weight (kg)">
+            </div>
+            <div class="set">
+                <label for="
