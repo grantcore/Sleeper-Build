@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleeper Build - Phase 1 Day 1 Push</title>
+    <title>Sleeper Build - Workout Tracker</title>
     <link rel="icon" href="icon.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
+            <!-- Logo -->
+            <img src="logo.png" alt="Workout Logo" id="logo">
             <h1>Workout Tracker</h1>
+
             <!-- Menu for Selecting Workouts -->
             <nav>
                 <ul id="menu">
@@ -20,6 +23,7 @@
                     <li><a href="#" onclick="showWorkout('day4')">Day 4 - Arms</a></li>
                 </ul>
             </nav>
+
             <!-- Timer -->
             <div id="timer">00:00</div>
             <button id="finishBtn">Finish Workout</button>
@@ -36,7 +40,7 @@
 
         <!-- Workout Details -->
         <section id="workout">
-            <!-- Day 1 Push Workout (This will be shown dynamically based on menu choice) -->
+            <!-- Workout details will be dynamically added here based on the selected day -->
         </section>
 
         <footer>
