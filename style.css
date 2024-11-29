@@ -1,5 +1,8 @@
+/* General Layout */
 body {
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 header {
@@ -18,23 +21,60 @@ header {
 
 h1 {
   margin: 0;
+  font-size: 1.5rem;
 }
 
 button.cancel {
   background: none;
   border: none;
   color: white;
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
-main {
-  padding: 20px;
+/* Workout Timer */
+#workout-timer {
+  font-size: 1.2rem;
+  margin: 10px;
+  text-align: center;
 }
 
+/* Exercise Section */
 .exercise {
-  margin-bottom: 20px;
+  margin: 20px 10px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
-button.rest-timer {
-  margin-left: 10px;
+.exercise h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.set {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.set input {
+  width: 60px;
+  margin: 0 5px;
+}
+
+.previous-data {
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: gray;
+}
+
+/* End Workout Button */
+#finish-workout {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
