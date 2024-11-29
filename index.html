@@ -10,7 +10,17 @@
 <body>
     <div class="container">
         <header>
-            <h1>Phase 1: Day 1 - Push Workout</h1>
+            <h1>Workout Tracker</h1>
+            <!-- Menu for Selecting Workouts -->
+            <nav>
+                <ul id="menu">
+                    <li><a href="#" onclick="showWorkout('day1')">Day 1 - Push</a></li>
+                    <li><a href="#" onclick="showWorkout('day2')">Day 2 - Pull</a></li>
+                    <li><a href="#" onclick="showWorkout('day3')">Day 3 - Legs</a></li>
+                    <li><a href="#" onclick="showWorkout('day4')">Day 4 - Arms</a></li>
+                </ul>
+            </nav>
+            <!-- Timer -->
             <div id="timer">00:00</div>
             <button id="finishBtn">Finish Workout</button>
             <button id="cancelBtn">Cancel Workout</button>
@@ -19,25 +29,14 @@
         <!-- Day Completion Indicator -->
         <div id="dayStatus">
             <span id="day1" class="day-square">Day 1</span>
+            <span id="day2" class="day-square">Day 2</span>
+            <span id="day3" class="day-square">Day 3</span>
+            <span id="day4" class="day-square">Day 4</span>
         </div>
 
+        <!-- Workout Details -->
         <section id="workout">
-            <h2>Pec Deck Flys</h2>
-            <div class="set">
-                <label for="set1_reps">Set 1 - Reps:</label>
-                <input type="number" id="set1_reps" placeholder="Reps">
-                <label for="set1_weight">Set 1 - Weight:</label>
-                <input type="number" id="set1_weight" placeholder="Weight (kg)">
-            </div>
-            <div class="set">
-                <label for="set2_reps">Set 2 - Reps:</label>
-                <input type="number" id="set2_reps" placeholder="Reps">
-                <label for="set2_weight">Set 2 - Weight:</label>
-                <input type="number" id="set2_weight" placeholder="Weight (kg)">
-            </div>
-            <button id="addSetBtn">Add Set</button>
-
-            <!-- Add more exercises here -->
+            <!-- Day 1 Push Workout (This will be shown dynamically based on menu choice) -->
         </section>
 
         <footer>
