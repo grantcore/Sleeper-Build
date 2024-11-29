@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Phase 1</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phase 1 Overview</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <div id="logo-container">
-      <img src="logo.png" alt="Sleeper Build Logo" class="logo" />
+    <div class="logo">
+      <img src="logo.png" alt="Sleeper Build Logo">
     </div>
-    <button class="back-button" onclick="navigateTo('index.html')">X</button>
+    <h1>Phase 1: Hypertrophy Training</h1>
   </header>
   <main>
-    <h1>Phase 1</h1>
-    <div class="menu">
-      <button onclick="navigateTo('day1.html')">Day 1 - Push</button>
-      <button onclick="navigateTo('day2.html')">Day 2 - Pull</button>
-      <button onclick="navigateTo('day3.html')">Day 3 - Legs</button>
-      <button onclick="navigateTo('day4.html')">Day 4 - Arms</button>
-    </div>
+    <nav class="menu">
+      <button onclick="location.href='phase1-day1.html'">Day 1: Push</button>
+      <button onclick="location.href='phase1-day2.html'">Day 2: Pull</button>
+      <button onclick="location.href='phase1-day3.html'">Day 3: Legs</button>
+      <button onclick="location.href='phase1-day4.html'">Day 4: Arms</button>
+    </nav>
   </main>
-  <script src="script.js"></script>
 </body>
 </html>
