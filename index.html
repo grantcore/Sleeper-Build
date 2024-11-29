@@ -3,31 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleeper Build - Workout Tracker</title>
+    <title>Sleeper Build - Phase 1 Day 1 Push</title>
     <link rel="icon" href="icon.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="logo.png" alt="Sleeper Build Logo" class="logo">
+    <div class="container">
+        <header>
+            <h1>Phase 1: Day 1 - Push Workout</h1>
+            <div id="timer">00:00</div>
+            <button id="finishBtn">Finish Workout</button>
+            <button id="cancelBtn">Cancel Workout</button>
+        </header>
+
+        <!-- Day Completion Indicator -->
+        <div id="dayStatus">
+            <span id="day1" class="day-square">Day 1</span>
         </div>
-        <h1>Sleeper Build - Workout Tracker</h1>
-    </header>
 
-    <div class="phase-selector">
-        <h2>Select Phase</h2>
-        <button onclick="changePhase(1)">Phase 1</button>
-        <button onclick="changePhase(2)">Phase 2</button>
+        <section id="workout">
+            <h2>Pec Deck Flys</h2>
+            <div class="set">
+                <label for="set1_reps">Set 1 - Reps:</label>
+                <input type="number" id="set1_reps" placeholder="Reps">
+                <label for="set1_weight">Set 1 - Weight:</label>
+                <input type="number" id="set1_weight" placeholder="Weight (kg)">
+            </div>
+            <div class="set">
+                <label for="set2_reps">Set 2 - Reps:</label>
+                <input type="number" id="set2_reps" placeholder="Reps">
+                <label for="set2_weight">Set 2 - Weight:</label>
+                <input type="number" id="set2_weight" placeholder="Weight (kg)">
+            </div>
+            <button id="addSetBtn">Add Set</button>
+
+            <!-- Add more exercises here -->
+        </section>
+
+        <footer>
+            <button id="saveBtn">Save Workout</button>
+        </footer>
     </div>
-
-    <div id="workout-container">
-        <!-- Workout details will be populated here by JavaScript -->
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Sleeper Build. All rights reserved.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>
