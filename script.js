@@ -1,105 +1,73 @@
-// Timer functionality
-let timer;
-let timeRemaining = 0;
-let timerRunning = false;
-
-const startTimerButton = document.getElementById('start-timer');
-const timerDisplay = document.getElementById('timer-display');
-
-// Start or stop the timer
-startTimerButton.addEventListener('click', () => {
-    if (timerRunning) {
-        clearInterval(timer);
-        timerRunning = false;
-        startTimerButton.textContent = 'Start Timer';
-    } else {
-        timeRemaining = 30; // Set to 30 seconds for example, change as needed
-        startTimer();
-        timerRunning = true;
-        startTimerButton.textContent = 'Stop Timer';
+// Phase data for exercises
+const phases = {
+    1: {
+        "Day 1 Push": [
+            { name: "Pec Deck Flys", sets: 3, rest: "90s" },
+            { name: "Neutral Grip Dumbbell Bench Press", sets: 3, rest: "90s" },
+            { name: "Smith Machine Seated Shoulder Press", sets: 3, rest: "90s" },
+            { name: "Cable Lateral Raise", sets: 3, rest: "90s" },
+            { name: "DB Skull Crusher", sets: 3, rest: "90s" },
+            { name: "Cable Single Arm Tricep Extension Low", sets: 3, rest: "90s" }
+        ],
+        "Day 2 Pull": [
+            { name: "Close Grip Lat Pulldown", sets: 3, rest: "90s" },
+            { name: "Lat Machine Single Arm Close Grip Row", sets: 3, rest: "90s" },
+            { name: "Machine Seated Single Arm Neutral Grip Row", sets: 3, rest: "90s" },
+            { name: "Rear Delt Cable Fly", sets: 3, rest: "90s" },
+            { name: "Dumbbell Single Arm Preacher Curl", sets: 3, rest: "90s" },
+            { name: "Cable Curl Single Arm", sets: 3, rest: "90s" }
+        ],
+        // Add Day 3, Day 4, and Day 5 for Phase 1 here...
+    },
+    2: {
+        "Day 1 Push": [
+            { name: "DB Incline Bench Press", sets: 3, rest: "90s" },
+            { name: "Smith Machine Bench Press Flat", sets: 3, rest: "90s" },
+            { name: "Machine Assisted Dip", sets: 3, rest: "90s" },
+            { name: "DB Shoulder Press", sets: 3, rest: "90s" },
+            { name: "DB Lateral Raise", sets: 3, rest: "90s" },
+            { name: "Barbell Close Grip Bench Press", sets: 3, rest: "90s" }
+        ],
+        "Day 2 Pull": [
+            { name: "Cable Seated Wide Grip Row", sets: 3, rest: "90s" },
+            { name: "DB Single Arm Row", sets: 3, rest: "90s" },
+            { name: "Lat Machine Wide Bar Close Grip Pulldown", sets: 3, rest: "90s" },
+            { name: "Straight-Arm Pulldown", sets: 3, rest: "90s" },
+            { name: "Seated Row Single Arm", sets: 3, rest: "90s" },
+            { name: "DB Hammer Curl", sets: 3, rest: "90s" }
+        ],
+        // Add Day 3, Day 4, and Day 5 for Phase 2 here...
     }
-});
+};
 
-// Function to start the timer
-function startTimer() {
-    timer = setInterval(() => {
-        if (timeRemaining <= 0) {
-            clearInterval(timer);
-            alert('Time is up!');
-            timerRunning = false;
-            startTimerButton.textContent = 'Start Timer';
-        } else {
-            timeRemaining--;
-            updateTimerDisplay(timeRemaining);
-        }
-    }, 1000);
+// Function to change workout phase
+function changePhase(phase) {
+    const workoutContainer = document.getElementById("workout-container");
+    workoutContainer.innerHTML = ""; // Clear current workout
+
+    const phaseData = phases[phase];
+    for (let day in phaseData) {
+        const dayContainer = document.createElement("div");
+        dayContainer.classList.add("day-container");
+        dayContainer.innerHTML = `<h2>${day}</h2>`;
+
+        phaseData[day].forEach(exercise => {
+            const exerciseElement = document.createElement("div");
+            exerciseElement.classList.add("exercise");
+            exerciseElement.innerHTML = `
+                <label for="${exercise.name}">${exercise.name}</label>
+                <input type="number" placeholder="Reps" id="${exercise.name}-reps">
+                <input type="number" placeholder="Weight (kg)" id="${exercise.name}-weight">
+                <label>Rest Time: ${exercise.rest}</label>
+            `;
+            dayContainer.appendChild(exerciseElement);
+        });
+
+        workoutContainer.appendChild(dayContainer);
+    }
 }
 
-// Update the timer display
-function updateTimerDisplay(time) {
-    const minutes = Math.floor(time / 60);
-    const seconds = time % 60;
-    timerDisplay.textContent = `${formatTime(minutes)}:${formatTime(seconds)}`;
-}
-
-// Format time for display (e.g., 5 seconds becomes 05)
-function formatTime(num) {
-    return num < 10 ? `0${num}` : num;
-}
-
-// Log workout data (sets, reps, weight)
-const workoutForm = document.getElementById('workout-form');
-const exerciseNameInput = document.getElementById('exercise-name');
-const setsInput = document.getElementById('sets');
-const repsInput = document.getElementById('reps');
-const weightInput = document.getElementById('weight');
-
-// Listen for form submission
-workoutForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const exerciseName = exerciseNameInput.value;
-    const sets = setsInput.value;
-    const reps = repsInput.value;
-    const weight = weightInput.value;
-
-    // Save the workout data to local storage (for now)
-    saveWorkoutData(exerciseName, sets, reps, weight);
-
-    // Clear the form after submission
-    workoutForm.reset();
-    alert('Workout logged successfully!');
-});
-
-// Save the workout data
-function saveWorkoutData(exerciseName, sets, reps, weight) {
-    let workoutData = JSON.parse(localStorage.getItem('workouts')) || [];
-
-    const newWorkout = {
-        exerciseName,
-        sets,
-        reps,
-        weight,
-        date: new Date().toLocaleString()
-    };
-
-    workoutData.push(newWorkout);
-    localStorage.setItem('workouts', JSON.stringify(workoutData));
-}
-
-// Retrieve and display the previous workout data
-function displayPreviousWorkouts() {
-    const workoutData = JSON.parse(localStorage.getItem('workouts')) || [];
-    const workoutList = document.createElement('ul');
-
-    workoutData.forEach((workout) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${workout.exerciseName}: ${workout.sets} sets x ${workout.reps} reps at ${workout.weight} kg (${workout.date})`;
-        workoutList.appendChild(listItem);
-    });
-
-    document.body.appendChild(workoutList);
-}
-
-// Display previous workouts when the page loads
-window.onload = displayPreviousWorkouts;
+// Initialize Phase 1 by default
+window.onload = function() {
+    changePhase(1);
+};
