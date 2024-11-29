@@ -18,29 +18,53 @@
   <main>
     <div id="workout-timer">Workout Timer: <span id="total-timer">00:00</span></div>
     <div class="workouts">
+
+      <!-- Exercise 1 -->
       <div class="exercise">
         <h2>Pec Deck Flys</h2>
-        <p>3 Sets</p>
         <div class="set">
-          <label>Set 1: <input type="number" placeholder="Reps"></label>
-          <label>Weight (kg): <input type="number" placeholder="Weight"></label>
-          <span>Previous: 12 x 60kg</span>
-          <button class="rest-timer" data-time="120" onclick="startRestTimer(this)">120s Rest (Start)</button>
+          Set 1: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
+          <span class="previous-data">Prev: 12 x 60kg</span>
         </div>
         <div class="set">
-          <label>Set 2: <input type="number" placeholder="Reps"></label>
-          <label>Weight (kg): <input type="number" placeholder="Weight"></label>
-          <span>Previous: 10 x 62.5kg</span>
-          <button class="rest-timer" data-time="120" onclick="startRestTimer(this)">120s Rest (Start)</button>
+          Set 2: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
+          <span class="previous-data">Prev: 10 x 62.5kg</span>
         </div>
         <div class="set">
-          <label>Set 3: <input type="number" placeholder="Reps"></label>
-          <label>Weight (kg): <input type="number" placeholder="Weight"></label>
-          <span>Previous: 8 x 65kg</span>
-          <button class="rest-timer" data-time="120" onclick="startRestTimer(this)">120s Rest (Start)</button>
+          Set 3: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
+          <span class="previous-data">Prev: 8 x 65kg</span>
         </div>
       </div>
-      <!-- Add other exercises in similar format -->
+
+      <!-- Exercise 2 -->
+      <div class="exercise">
+        <h2>Neutral Grip Dumbbell Bench Press</h2>
+        <div class="set">
+          Set 1: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
+          <span class="previous-data">Prev: 10 x 20kg</span>
+        </div>
+        <div class="set">
+          Set 2: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
+          <span class="previous-data">Prev: 8 x 22kg</span>
+        </div>
+        <div class="set">
+          Set 3: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
+          <span class="previous-data">Prev: 6 x 24kg</span>
+        </div>
+      </div>
+
+      <!-- Exercise 3 -->
+      <div class="exercise">
+        <h2>Smith Machine Seated Shoulder Press</h2>
+        <div class="set">
+          Set 1: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
+          <span class="previous-data">Prev: 10 x 35kg</span>
+        </div>
+        <!-- Repeat for other sets... -->
+      </div>
+
+      <!-- Repeat for all remaining exercises -->
+
     </div>
     <button id="finish-workout" onclick="finishWorkout()">End Workout</button>
   </main>
