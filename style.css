@@ -1,90 +1,81 @@
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #f4f4f4;
     color: #333;
 }
 
-header {
-    background-color: #333;
-    color: white;
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
+}
+
+header {
     text-align: center;
+    margin-bottom: 20px;
 }
 
-h1 {
-    margin: 0;
-    font-size: 2.5em;
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
-.logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+button:hover {
+    background-color: #0056b3;
 }
 
-.logo {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
+#timer {
+    font-size: 2em;
+    margin-top: 10px;
+    color: #333;
 }
 
-.phase-selector {
+#dayStatus {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-.phase-selector button {
-    background-color: #4CAF50;
+.day-square {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    background-color: grey;
     color: white;
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
-.phase-selector button:hover {
-    background-color: #45a049;
-}
-
-#workout-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-}
-
-.exercise {
-    background-color: white;
-    padding: 15px;
-    border-radius: 5px;
-    margin: 10px 0;
-    width: 80%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.exercise input {
-    margin-right: 10px;
-    padding: 5px;
-}
-
-.exercise label {
+    text-align: center;
+    line-height: 50px;
     font-weight: bold;
-    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.day-square.completed {
+    background-color: green;
+}
+
+section h2 {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+.set {
+    margin: 10px 0;
+}
+
+.set input {
+    padding: 8px;
+    margin: 5px 0;
+    width: 100px;
 }
 
 footer {
-    background-color: #333;
-    color: white;
-    padding: 10px;
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    margin-top: 20px;
 }
