@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 1 - Push</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div id="logo-container">
+      <img src="logo.png" alt="Sleeper Build Logo" class="logo" />
+    </div>
+    <button class="back-button" onclick="navigateTo('phase1.html')">X</button>
+  </header>
+  <main>
+    <h1>Day 1 - Push</h1>
+    <div id="timer">00:00:00</div>
+    <div class="workout">
+      <div class="exercise">
+        <h2>Pec Deck Flys</h2>
+        <p>3 sets - 90s rest</p>
+        <input type="text" placeholder="Set 1 Reps" />
+        <input type="text" placeholder="Set 2 Reps" />
+        <input type="text" placeholder="Set 3 Reps" />
+      </div>
+      <div class="exercise">
+        <h2>Neutral Grip Dumbbell Bench Press</h2>
+        <p>3 sets - 90s rest</p>
+        <input type="text" placeholder="Set 1 Reps" />
+        <input type="text" placeholder="Set 2 Reps" />
+        <input type="text" placeholder="Set 3 Reps" />
+      </div>
+      <!-- Add more exercises -->
+    </div>
+    <button id="end-workout" onclick="endWorkout()">End Workout</button>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
