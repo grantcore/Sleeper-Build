@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phase 1 - Day 1: Push</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Sleeper Build Logo">
+    </div>
+    <h1>Phase 1: Day 1 - Push</h1>
+    <button class="cancel" onclick="location.href='phase1.html'">X</button>
+  </header>
+  <main>
+    <div id="workout-timer">Workout Timer: <span id="total-timer">00:00</span></div>
+    <div class="workouts">
+      <div class="exercise">
+        <h2>Pec Deck Flys</h2>
+        <p>3 Sets</p>
+        <div class="set">
+          <label>Set 1: <input type="number" placeholder="Reps"></label>
+          <label>Weight (kg): <input type="number" placeholder="Weight"></label>
+          <span>Previous: 12 x 60kg</span>
+          <button class="rest-timer" data-time="120" onclick="startRestTimer(this)">120s Rest (Start)</button>
+        </div>
+        <div class="set">
+          <label>Set 2: <input type="number" placeholder="Reps"></label>
+          <label>Weight (kg): <input type="number" placeholder="Weight"></label>
+          <span>Previous: 10 x 62.5kg</span>
+          <button class="rest-timer" data-time="120" onclick="startRestTimer(this)">120s Rest (Start)</button>
+        </div>
+        <div class="set">
+          <label>Set 3: <input type="number" placeholder="Reps"></label>
+          <label>Weight (kg): <input type="number" placeholder="Weight"></label>
+          <span>Previous: 8 x 65kg</span>
+          <button class="rest-timer" data-time="120" onclick="startRestTimer(this)">120s Rest (Start)</button>
+        </div>
+      </div>
+      <!-- Add other exercises in similar format -->
+    </div>
+    <button id="finish-workout" onclick="finishWorkout()">End Workout</button>
+  </main>
+</body>
+</html>
