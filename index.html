@@ -3,49 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleeper Build - Workout Tracker</title>
-    <link rel="icon" href="icon.png">
+    <title>Workout Tracker</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
+        <!-- Header with logo -->
         <header>
-            <!-- Logo -->
-            <img src="logo.png" alt="Workout Logo" id="logo">
+            <img src="logo.png" alt="Logo" id="logo">
             <h1>Workout Tracker</h1>
-
-            <!-- Menu for Selecting Workouts -->
-            <nav>
-                <ul id="menu">
-                    <li><a href="#" onclick="showWorkout('day1')">Day 1 - Push</a></li>
-                    <li><a href="#" onclick="showWorkout('day2')">Day 2 - Pull</a></li>
-                    <li><a href="#" onclick="showWorkout('day3')">Day 3 - Legs</a></li>
-                    <li><a href="#" onclick="showWorkout('day4')">Day 4 - Arms</a></li>
-                </ul>
-            </nav>
-
-            <!-- Timer -->
-            <div id="timer">00:00</div>
-            <button id="finishBtn">Finish Workout</button>
-            <button id="cancelBtn">Cancel Workout</button>
         </header>
 
-        <!-- Day Completion Indicator -->
-        <div id="dayStatus">
-            <span id="day1" class="day-square" onclick="showWorkout('day1')">Day 1</span>
-            <span id="day2" class="day-square" onclick="showWorkout('day2')">Day 2</span>
-            <span id="day3" class="day-square" onclick="showWorkout('day3')">Day 3</span>
-            <span id="day4" class="day-square" onclick="showWorkout('day4')">Day 4</span>
-        </div>
-
-        <!-- Workout Details -->
-        <section id="workout">
-            <!-- Workout details will be dynamically added here based on the selected day -->
+        <!-- Phase Selector -->
+        <section id="phase-selector">
+            <label for="phase">Select Phase:</label>
+            <select id="phase" onchange="changePhase()">
+                <option value="phase1">Phase 1</option>
+                <option value="phase2">Phase 2</option>
+            </select>
         </section>
 
-        <footer>
-            <button id="saveBtn">Save Workout</button>
-        </footer>
+        <!-- Sidebar Menu -->
+        <aside id="sidebar">
+            <button onclick="toggleMenu()" id="menu-toggle">Menu</button>
+            <nav id="menu">
+                <ul>
+                    <li><button onclick="showWorkout('day1')">Day 1</button></li>
+                    <li><button onclick="showWorkout('day2')">Day 2</button></li>
+                    <li><button onclick="showWorkout('day3')">Day 3</button></li>
+                    <li><button onclick="showWorkout('day4')">Day 4</button></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Timer and Finish/Cancel Buttons -->
+        <div id="timer-section">
+            <div id="timer">00:00</div>
+            <button id="finishBtn" onclick="finishWorkout()">Finish Workout</button>
+            <button id="cancelBtn" onclick="cancelWorkout()">Cancel Workout</button>
+        </div>
+
+        <!-- Main Content Area -->
+        <main id="workout">
+            <h2 id="phase-title">Phase 1</h2>
+            <h3 id="day-title">Select a day</h3>
+        </main>
     </div>
 
     <script src="script.js"></script>
