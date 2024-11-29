@@ -1,73 +1,103 @@
-// Phase data for exercises
-const phases = {
-    1: {
-        "Day 1 Push": [
-            { name: "Pec Deck Flys", sets: 3, rest: "90s" },
-            { name: "Neutral Grip Dumbbell Bench Press", sets: 3, rest: "90s" },
-            { name: "Smith Machine Seated Shoulder Press", sets: 3, rest: "90s" },
-            { name: "Cable Lateral Raise", sets: 3, rest: "90s" },
-            { name: "DB Skull Crusher", sets: 3, rest: "90s" },
-            { name: "Cable Single Arm Tricep Extension Low", sets: 3, rest: "90s" }
-        ],
-        "Day 2 Pull": [
-            { name: "Close Grip Lat Pulldown", sets: 3, rest: "90s" },
-            { name: "Lat Machine Single Arm Close Grip Row", sets: 3, rest: "90s" },
-            { name: "Machine Seated Single Arm Neutral Grip Row", sets: 3, rest: "90s" },
-            { name: "Rear Delt Cable Fly", sets: 3, rest: "90s" },
-            { name: "Dumbbell Single Arm Preacher Curl", sets: 3, rest: "90s" },
-            { name: "Cable Curl Single Arm", sets: 3, rest: "90s" }
-        ],
-        // Add Day 3, Day 4, and Day 5 for Phase 1 here...
-    },
-    2: {
-        "Day 1 Push": [
-            { name: "DB Incline Bench Press", sets: 3, rest: "90s" },
-            { name: "Smith Machine Bench Press Flat", sets: 3, rest: "90s" },
-            { name: "Machine Assisted Dip", sets: 3, rest: "90s" },
-            { name: "DB Shoulder Press", sets: 3, rest: "90s" },
-            { name: "DB Lateral Raise", sets: 3, rest: "90s" },
-            { name: "Barbell Close Grip Bench Press", sets: 3, rest: "90s" }
-        ],
-        "Day 2 Pull": [
-            { name: "Cable Seated Wide Grip Row", sets: 3, rest: "90s" },
-            { name: "DB Single Arm Row", sets: 3, rest: "90s" },
-            { name: "Lat Machine Wide Bar Close Grip Pulldown", sets: 3, rest: "90s" },
-            { name: "Straight-Arm Pulldown", sets: 3, rest: "90s" },
-            { name: "Seated Row Single Arm", sets: 3, rest: "90s" },
-            { name: "DB Hammer Curl", sets: 3, rest: "90s" }
-        ],
-        // Add Day 3, Day 4, and Day 5 for Phase 2 here...
-    }
-};
+let setCount = 2; // Start with 2 sets for each exercise
+let timerInterval;
+let timerSeconds = 0;
+let isWorkoutActive = false;
 
-// Function to change workout phase
-function changePhase(phase) {
-    const workoutContainer = document.getElementById("workout-container");
-    workoutContainer.innerHTML = ""; // Clear current workout
-
-    const phaseData = phases[phase];
-    for (let day in phaseData) {
-        const dayContainer = document.createElement("div");
-        dayContainer.classList.add("day-container");
-        dayContainer.innerHTML = `<h2>${day}</h2>`;
-
-        phaseData[day].forEach(exercise => {
-            const exerciseElement = document.createElement("div");
-            exerciseElement.classList.add("exercise");
-            exerciseElement.innerHTML = `
-                <label for="${exercise.name}">${exercise.name}</label>
-                <input type="number" placeholder="Reps" id="${exercise.name}-reps">
-                <input type="number" placeholder="Weight (kg)" id="${exercise.name}-weight">
-                <label>Rest Time: ${exercise.rest}</label>
-            `;
-            dayContainer.appendChild(exerciseElement);
-        });
-
-        workoutContainer.appendChild(dayContainer);
-    }
+// Start the timer
+function startTimer() {
+    timerInterval = setInterval(function() {
+        timerSeconds++;
+        let minutes = Math.floor(timerSeconds / 60);
+        let seconds = timerSeconds % 60;
+        document.getElementById("timer").textContent = `${formatTime(minutes)}:${formatTime(seconds)}`;
+    }, 1000);
 }
 
-// Initialize Phase 1 by default
-window.onload = function() {
-    changePhase(1);
-};
+// Stop the timer
+function stopTimer() {
+    clearInterval(timerInterval);
+}
+
+// Format time as MM:SS
+function formatTime(time) {
+    return time < 10 ? "0" + time : time;
+}
+
+// Handle adding a new set for each exercise
+document.getElementById("addSetBtn").addEventListener("click", function() {
+    setCount++;
+    const newSetDiv = document.createElement("div");
+    newSetDiv.classList.add("set");
+    newSetDiv.innerHTML = `
+        <label for="set${setCount}_reps">Set ${setCount} - Reps:</label>
+        <input type="number" id="set${setCount}_reps" placeholder="Reps">
+        <label for="set${setCount}_weight">Set ${setCount} - Weight:</label>
+        <input type="number" id="set${setCount}_weight" placeholder="Weight (kg)">
+    `;
+    document.getElementById("workout").appendChild(newSetDiv);
+});
+
+// Cancel the workout
+document.getElementById("cancelBtn").addEventListener("click", function() {
+    if (confirm("Are you sure you want to cancel the workout? Data will be saved for next time.")) {
+        // Logic to save data
+        alert("Workout cancelled. Data saved.");
+        stopTimer();
+        window.location.reload(); // Simulating a cancel by refreshing the page
+    }
+});
+
+// Finish the workout
+document.getElementById("finishBtn").addEventListener("click", function() {
+    stopTimer();
+    alert("Workout completed!");
+    document.getElementById("day1").classList.add("completed");
+    logWorkoutStats();
+});
+
+// Log workout stats
+function logWorkoutStats() {
+    const workoutData = {
+        pecDeck: {
+            set1: {
+                reps: document.getElementById("set1_reps").value,
+                weight: document.getElementById("set1_weight").value
+            },
+            set2: {
+                reps: document.getElementById("set2_reps").value,
+                weight: document.getElementById("set2_weight").value
+            }
+            // Add logic for more sets
+        },
+        timeSpent: document.getElementById("timer").textContent,
+        date: new Date().toLocaleString()
+    };
+    console.log("Logged Workout Data:", workoutData);
+}
+
+// Save the workout (simplified)
+document.getElementById("saveBtn").addEventListener("click", function() {
+    const workoutData = {
+        pecDeck: {
+            set1: {
+                reps: document.getElementById("set1_reps").value,
+                weight: document.getElementById("set1_weight").value
+            },
+            set2: {
+                reps: document.getElementById("set2_reps").value,
+                weight: document.getElementById("set2_weight").value
+            }
+            // Add logic for more sets
+        }
+    };
+    console.log("Saved Workout Data:", workoutData);
+    alert("Workout saved!");
+});
+
+// Start the workout
+function startWorkout() {
+    isWorkoutActive = true;
+    startTimer();
+}
+
+startWorkout(); // Automatically start the workout timer when the page loads
