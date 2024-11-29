@@ -1,55 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workout Tracker</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleeper Build</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <!-- Header with logo -->
-        <header>
-            <img src="logo.png" alt="Logo" id="logo">
-            <h1>Workout Tracker</h1>
-        </header>
-
-        <!-- Phase Selector -->
-        <section id="phase-selector">
-            <label for="phase">Select Phase:</label>
-            <select id="phase" onchange="changePhase()">
-                <option value="phase1">Phase 1</option>
-                <option value="phase2">Phase 2</option>
-            </select>
-        </section>
-
-        <!-- Sidebar Menu -->
-        <aside id="sidebar">
-            <button onclick="toggleMenu()" id="menu-toggle">Menu</button>
-            <nav id="menu">
-                <ul>
-                    <li><button onclick="showWorkout('day1')">Day 1</button></li>
-                    <li><button onclick="showWorkout('day2')">Day 2</button></li>
-                    <li><button onclick="showWorkout('day3')">Day 3</button></li>
-                    <li><button onclick="showWorkout('day4')">Day 4</button></li>
-                </ul>
-            </nav>
-        </aside>
-
-        <!-- Timer and Finish/Cancel Buttons -->
-        <div id="timer-section">
-            <div id="timer">00:00</div>
-            <button id="finishBtn" onclick="finishWorkout()">Finish Workout</button>
-            <button id="cancelBtn" onclick="cancelWorkout()">Cancel Workout</button>
-        </div>
-
-        <!-- Main Content Area -->
-        <main id="workout">
-            <h2 id="phase-title">Phase 1</h2>
-            <h3 id="day-title">Select a day</h3>
-        </main>
+  <header>
+    <div id="logo-container">
+      <img src="logo.png" alt="Sleeper Build Logo" class="logo" />
     </div>
-
-    <script src="script.js"></script>
+  </header>
+  <main>
+    <h1>Workout Phases</h1>
+    <div class="menu">
+      <button onclick="navigateTo('phase1.html')">Phase 1</button>
+      <button onclick="navigateTo('phase2.html')">Phase 2</button>
+      <!-- Add more phases here -->
+    </div>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
