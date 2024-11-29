@@ -1,60 +1,31 @@
-let timerSeconds = 0;
+// Navigation Helper
+function navigateTo(page) {
+  window.location.href = page;
+}
+
+// Timer Logic
 let timerInterval;
-let currentPhase = "phase1";
-
-function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
-
-function changePhase() {
-    const phaseSelector = document.getElementById("phase");
-    currentPhase = phaseSelector.value;
-    document.getElementById("phase-title").textContent = currentPhase === "phase1" ? "Phase 1" : "Phase 2";
-    document.getElementById("day-title").textContent = "Select a day";
-}
-
-function showWorkout(day) {
-    const dayNames = {
-        day1: "Day 1 - Push",
-        day2: "Day 2 - Pull",
-        day3: "Day 3 - Legs",
-        day4: "Day 4 - Arms",
-    };
-    document.getElementById("day-title").textContent = dayNames[day];
-    document.getElementById("menu").style.display = "none"; // Hide menu after selection
-    resetTimer();
-}
-
 function startTimer() {
-    timerInterval = setInterval(() => {
-        timerSeconds++;
-        const minutes = Math.floor(timerSeconds / 60);
-        const seconds = timerSeconds % 60;
-        document.getElementById("timer").textContent = `${formatTime(minutes)}:${formatTime(seconds)}`;
-    }, 1000);
+  let startTime = Date.now();
+  timerInterval = setInterval(() => {
+    const elapsedTime = Date.now() - startTime;
+    const seconds = Math.floor(elapsedTime / 1000) % 60;
+    const minutes = Math.floor(elapsedTime / 60000) % 60;
+    const hours = Math.floor(elapsedTime / 3600000);
+    document.getElementById('timer').textContent = `${hours
+      .toString()
+      .padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds
+      .toString()
+      .padStart(2, '0')}`;
+  }, 1000);
 }
 
 function stopTimer() {
-    clearInterval(timerInterval);
+  clearInterval(timerInterval);
 }
 
-function resetTimer() {
-    stopTimer();
-    timerSeconds = 0;
-    document.getElementById("timer").textContent = "00:00";
-}
-
-function formatTime(time) {
-    return time < 10 ? "0" + time : time;
-}
-
-function finishWorkout() {
-    stopTimer();
-    alert("Workout finished!");
-}
-
-function cancelWorkout() {
-    resetTimer();
-    alert("Workout canceled.");
+// End Workout
+function endWorkout() {
+  stopTimer();
+  alert('Workout Completed!');
 }
