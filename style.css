@@ -1,42 +1,22 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
+/* Inputs */
+input[type="number"] {
+    width: 50px; /* Adjust width */
+    margin: 0 5px; /* Add spacing between inputs */
 }
 
-header, footer {
-    text-align: center;
-    padding: 10px;
-    background: black;
-    color: white;
+/* Past data alignment */
+.past {
+    float: right;
+    color: gray;
 }
 
-main {
-    padding: 20px;
-}
-
-.workout {
-    margin-bottom: 20px;
-}
-
-.workout div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 10px 0;
-}
-
-input {
-    width: 50px;
-    text-align: center;
-    margin: 0 5px;
-}
-
-button {
+/* Timer button */
+.timer-btn {
     display: block;
     margin: 10px 0;
 }
 
-.past {
-    color: grey;
-    font-style: italic;
+/* Workout section styling */
+.workout {
+    margin-bottom: 20px;
 }
