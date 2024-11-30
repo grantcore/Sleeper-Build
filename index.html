@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sleeper Build</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleeper Build</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div id="logo-container">
-      <img src="logo.png" alt="Sleeper Build Logo" class="logo" />
-    </div>
-  </header>
-  <main>
-    <h1>Workout Phases</h1>
-    <div class="menu">
-      <button onclick="navigateTo('phase1.html')">Phase 1</button>
-      <button onclick="navigateTo('phase2.html')">Phase 2</button>
-      <!-- Add more phases here -->
-    </div>
-  </main>
-  <script src="script.js"></script>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Sleeper Build Logo" class="logo">
+        </div>
+        <div class="intro-text">
+            <h1>Welcome to Sleeper Build</h1>
+            <p>Your go-to pocket app for tracking and logging your workouts. Start with Phase 1 and track your progress as you complete each phase.</p>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+                <div class="progress" style="width: 0%;" id="progress"></div>
+            </div>
+            <p id="progress-percentage">Progress: 0%</p>
+        </div>
+    </header>
+    <main>
+        <div class="buttons-container">
+            <button class="phase-button" onclick="location.href='phase1.html'">Phase 1</button>
+            <button class="phase-button" onclick="location.href='phase2.html'">Phase 2</button>
+        </div>
+    </main>
 </body>
 </html>
