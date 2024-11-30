@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phase 1 - Day 1: Push</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 1 - Day 1</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="header">
-    <h1>Phase 1 - Day 1: Push</h1>
-  </header>
-  <main>
-    <div class="workout-container">
-      <!-- Pec Deck Flys -->
-      <div class="workout">
-        <h2>Pec Deck Flys</h2>
-        <div class="set">
-          <label>Set 1: </label>
-          <input type="number" placeholder="Reps">
-          <input type="number" placeholder="Kg">
-          <span>Prev: 10 x 82kg</span>
-        </div>
-        <div class="rest-timer">
-          Rest: 120s <button>Start</button>
-        </div>
-      </div>
-      <!-- Add other workouts below similarly -->
-    </div>
-    <button class="end-workout">End Workout</button>
-  </main>
+    <header>
+        <h1>Phase 1 - Day 1: Push</h1>
+    </header>
+    <main>
+        <section id="workouts">
+            <div class="workout">
+                <h2>Pec Deck Flys</h2>
+                <div>
+                    Set 1: <input type="number" placeholder="Reps"> set x 
+                    <input type="number" placeholder="Kg"> ................ 
+                    <span class="past">Past: 10 x 82kg</span>
+                </div>
+                <button class="timer-btn">Start Timer</button>
+                <div>
+                    Set 2: <input type="number" placeholder="Reps"> set x 
+                    <input type="number" placeholder="Kg"> ................ 
+                    <span class="past">Past: 10 x 82kg</span>
+                </div>
+                <button class="timer-btn">Start Timer</button>
+                <!-- Add Set 3 similarly -->
+            </div>
+
+            <!-- Repeat for all 7 exercises -->
+        </section>
+    </main>
+    <footer>
+        <button id="endWorkout">End Workout</button>
+    </footer>
 </body>
 </html>
