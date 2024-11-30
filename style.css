@@ -1,80 +1,82 @@
-/* General Layout */
+/* General Styles */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #111;
+    color: #fff;
 }
 
+/* Header Section */
 header {
-  background-color: black;
-  color: white;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    padding: 20px;
 }
 
-.logo img {
-  width: 50px;
-  height: 50px;
+.logo-container {
+    margin-bottom: 20px;
 }
 
-h1 {
-  margin: 0;
-  font-size: 1.5rem;
+.logo {
+    width: 100px;
+    border-radius: 50%;
 }
 
-button.cancel {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
+/* Intro Text */
+.intro-text {
+    margin-bottom: 30px;
 }
 
-/* Workout Timer */
-#workout-timer {
-  font-size: 1.2rem;
-  margin: 10px;
-  text-align: center;
+.intro-text h1 {
+    margin: 0;
+    font-size: 24px;
 }
 
-/* Exercise Section */
-.exercise {
-  margin: 20px 10px;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+.intro-text p {
+    font-size: 16px;
+    margin-top: 10px;
 }
 
-.exercise h2 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
+/* Progress Bar */
+.progress-bar-container {
+    width: 90%;
+    margin: 0 auto 30px;
 }
 
-.set {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+.progress-bar {
+    background-color: #333;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.set input {
-  width: 60px;
-  margin: 0 5px;
+.progress {
+    height: 100%;
+    background-color: #76c7c0;
+    transition: width 0.5s;
 }
 
-.previous-data {
-  margin-left: auto;
-  font-size: 0.9rem;
-  color: gray;
+#progress-percentage {
+    margin-top: 10px;
+    font-size: 16px;
 }
 
-/* End Workout Button */
-#finish-workout {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  font-size: 1rem;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 5px;
+/* Buttons Container */
+.buttons-container {
+    margin-top: 30px;
+}
+
+.phase-button {
+    display: inline-block;
+    background-color: #444;
+    color: white;
+    font-size: 16px;
+    padding: 15px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.phase-button:hover {
+    background-color: #76c7c0;
 }
