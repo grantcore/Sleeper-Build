@@ -1,13 +1,10 @@
-// Example Progress Data
-let completedDays = 7; // Number of completed days (placeholder value)
-let totalDays = 28; // Total days in all phases (placeholder value)
+document.addEventListener("DOMContentLoaded", () => {
+  const progressBar = document.querySelector(".progress");
+  const progressPercentage = document.querySelector(".progress-percentage");
 
-// Update Progress Bar
-function updateProgressBar() {
-    const progressPercentage = Math.round((completedDays / totalDays) * 100);
-    document.getElementById("progress").style.width = `${progressPercentage}%`;
-    document.getElementById("progress-percentage").textContent = `Progress: ${progressPercentage}%`;
-}
+  // Simulated progress - replace this with real data from Firebase later.
+  const progress = 30; // Example: 30%
 
-// Call this function on page load
-updateProgressBar();
+  progressBar.style.width = `${progress}%`;
+  progressPercentage.textContent = `${progress}%`;
+});
