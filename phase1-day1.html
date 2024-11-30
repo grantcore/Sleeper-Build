@@ -5,84 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Phase 1 - Day 1: Push</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="logo.png" alt="Sleeper Build Logo">
-    </div>
-    <h1>Phase 1: Day 1 - Push</h1>
-    <button class="cancel" onclick="location.href='index.html'">X</button>
+  <header class="header">
+    <h1>Phase 1 - Day 1: Push</h1>
   </header>
   <main>
-    <div id="workout-timer">Workout Timer: <span id="total-timer">00:00</span></div>
-    <div class="workouts">
-
-      <!-- Exercise 1 -->
-      <div class="exercise">
+    <div class="workout-container">
+      <!-- Pec Deck Flys -->
+      <div class="workout">
         <h2>Pec Deck Flys</h2>
         <div class="set">
-          Set 1: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
-          <span class="previous-data">Prev: 12 x 60kg</span>
-          <button class="rest-timer" onclick="startRestTimer(this, 120)">Rest: 120s</button>
+          <label>Set 1: </label>
+          <input type="number" placeholder="Reps">
+          <input type="number" placeholder="Kg">
+          <span>Prev: 10 x 82kg</span>
         </div>
-        <div class="set">
-          Set 2: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
-          <span class="previous-data">Prev: 10 x 62.5kg</span>
-          <button class="rest-timer" onclick="startRestTimer(this, 120)">Rest: 120s</button>
-        </div>
-        <div class="set">
-          Set 3: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
-          <span class="previous-data">Prev: 8 x 65kg</span>
-          <button class="rest-timer" onclick="startRestTimer(this, 120)">Rest: 120s</button>
+        <div class="rest-timer">
+          Rest: 120s <button>Start</button>
         </div>
       </div>
-
-      <!-- Exercise 2 -->
-      <div class="exercise">
-        <h2>Neutral Grip Dumbbell Bench Press</h2>
-        <div class="set">
-          Set 1: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
-          <span class="previous-data">Prev: 10 x 20kg</span>
-          <button class="rest-timer" onclick="startRestTimer(this, 120)">Rest: 120s</button>
-        </div>
-        <div class="set">
-          Set 2: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
-          <span class="previous-data">Prev: 8 x 22kg</span>
-          <button class="rest-timer" onclick="startRestTimer(this, 120)">Rest: 120s</button>
-        </div>
-        <div class="set">
-          Set 3: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
-          <span class="previous-data">Prev: 6 x 24kg</span>
-          <button class="rest-timer" onclick="startRestTimer(this, 120)">Rest: 120s</button>
-        </div>
-      </div>
-
-      <!-- Exercise 3 -->
-      <div class="exercise">
-        <h2>Smith Machine Seated Shoulder Press</h2>
-        <div class="set">
-          Set 1: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
-          <span class="previous-data">Prev: 10 x 35kg</span>
-          <button class="rest-timer" onclick="startRestTimer(this, 120)">Rest: 120s</button>
-        </div>
-        <div class="set">
-          Set 2: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
-          <span class="previous-data">Prev: 8 x 37kg</span>
-          <button class="rest-timer" onclick="startRestTimer(this, 120)">Rest: 120s</button>
-        </div>
-        <div class="set">
-          Set 3: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
-          <span class="previous-data">Prev: 6 x 40kg</span>
-          <button class="rest-timer" onclick="startRestTimer(this, 120)">Rest: 120s</button>
-        </div>
-      </div>
-
-      <!-- Repeat for remaining exercises -->
-      <!-- Include all 7 workouts for Day 1 -->
+      <!-- Add other workouts below similarly -->
     </div>
-    <button id="finish-workout" onclick="finishWorkout()">End Workout</button>
+    <button class="end-workout">End Workout</button>
   </main>
 </body>
 </html>
