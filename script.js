@@ -1,10 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const progressBar = document.querySelector(".progress");
-  const progressPercentage = document.querySelector(".progress-percentage");
+    const timerBtns = document.querySelectorAll(".timer-btn");
+    timerBtns.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            if (btn.textContent === "Start Timer") {
+                btn.textContent = "Stop Timer";
+                // Timer logic here
+            } else {
+                btn.textContent = "Start Timer";
+                // Stop timer logic
+            }
+        });
+    });
 
-  // Simulated progress - replace this with real data from Firebase later.
-  const progress = 30; // Example: 30%
-
-  progressBar.style.width = `${progress}%`;
-  progressPercentage.textContent = `${progress}%`;
+    document.getElementById("endWorkout").addEventListener("click", () => {
+        alert("Workout Completed!");
+        // Save data logic
+    });
 });
