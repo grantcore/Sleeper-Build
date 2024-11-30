@@ -8,31 +8,58 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Phase 1 - Day 1: Push</h1>
+    <header class="workout-header">
+        <img src="logo.png" alt="Sleeper Build Logo" class="logo">
+        <button class="cancel-btn">X</button>
     </header>
+
     <main>
+        <h1>Phase 1 - Day 1: Push</h1>
         <section id="workouts">
+            <!-- Pec Deck Flys -->
             <div class="workout">
                 <h2>Pec Deck Flys</h2>
                 <div>
-                    Set 1: <input type="number" placeholder="Reps"> set x 
-                    <input type="number" placeholder="Kg"> ................ 
-                    <span class="past">Past: 10 x 82kg</span>
+                    Set 1: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
+                    <span class="past">... Past: 10 x 82kg</span>
                 </div>
-                <button class="timer-btn">Start Timer</button>
+                <button class="timer-btn">Start Rest Timer (120s)</button>
                 <div>
-                    Set 2: <input type="number" placeholder="Reps"> set x 
-                    <input type="number" placeholder="Kg"> ................ 
-                    <span class="past">Past: 10 x 82kg</span>
+                    Set 2: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
+                    <span class="past">... Past: 10 x 82kg</span>
                 </div>
-                <button class="timer-btn">Start Timer</button>
-                <!-- Add Set 3 similarly -->
+                <button class="timer-btn">Start Rest Timer (120s)</button>
+                <div>
+                    Set 3: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
+                    <span class="past">... Past: 10 x 82kg</span>
+                </div>
+                <button class="timer-btn">Start Rest Timer (120s)</button>
             </div>
 
-            <!-- Repeat for all 7 exercises -->
+            <!-- Additional Workouts -->
+            <div class="workout">
+                <h2>Incline Bench Press</h2>
+                <div>
+                    Set 1: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
+                    <span class="past">... Past: 8 x 100kg</span>
+                </div>
+                <button class="timer-btn">Start Rest Timer (120s)</button>
+                <div>
+                    Set 2: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
+                    <span class="past">... Past: 8 x 100kg</span>
+                </div>
+                <button class="timer-btn">Start Rest Timer (120s)</button>
+                <div>
+                    Set 3: <input type="number" placeholder="Reps"> x <input type="number" placeholder="Kg">
+                    <span class="past">... Past: 8 x 100kg</span>
+                </div>
+                <button class="timer-btn">Start Rest Timer (120s)</button>
+            </div>
+
+            <!-- Add similar sections for the remaining 5 workouts -->
         </section>
     </main>
+
     <footer>
         <button id="endWorkout">End Workout</button>
     </footer>
